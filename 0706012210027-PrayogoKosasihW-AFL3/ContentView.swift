@@ -12,7 +12,6 @@ struct ContentView: View {
         VStack {
             Text("Hello, P!")
                 .font(.largeTitle)
-                .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                 .foregroundColor(.gray)
                 
         }
