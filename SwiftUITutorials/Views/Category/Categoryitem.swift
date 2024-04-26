@@ -28,7 +28,3 @@ struct CategoryItem: View {
 #Preview {
     CategoryItem(landmark: ModelData().landmarks[0])
 }
-
-#Preview {
-    Category_item()
-}

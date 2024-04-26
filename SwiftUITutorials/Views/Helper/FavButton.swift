@@ -18,6 +18,7 @@ struct FavButton: View {
                 .labelStyle(.iconOnly)
                 .foregroundStyle(isSet ? .yellow : .gray)
         }
+    }
 }
 
 #Preview {

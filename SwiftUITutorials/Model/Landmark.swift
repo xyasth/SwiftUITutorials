@@ -9,29 +9,39 @@ import Foundation
 import SwiftUI
 import CoreLocation
 
-struct Landmark: Hashable, Codable{
+struct Landmark: Hashable, Codable, Identifiable {
     var id: Int
-    var Name: String
-    var pake: String
+    var name: String
+    var park: String
     var state: String
-    var descriotion: String
-    
+    var description: String
+    var isFavorite: Bool
+    var isFeatured: Bool
+
+    var category: Category
+    enum Category: String, CaseIterable, Codable {
+        case lakes = "Lakes"
+        case rivers = "Rivers"
+        case mountains = "Mountains"
+    }
+
     private var imageName: String
-    var image: Image{
+    var image: Image {
         Image(imageName)
     }
-    
+    var featureImage: Image? {
+        isFeatured ? Image(imageName + "_feature") : nil
+    }
+
     private var coordinates: Coordinates
-    var locationsCoordinate: CLLocationCoordinate2D{
+    var locationCoordinate: CLLocationCoordinate2D {
         CLLocationCoordinate2D(
             latitude: coordinates.latitude,
-            longitude: coordinates.longtitude
-        )
+            longitude: coordinates.longitude)
     }
-    
-    struct Coordinates:Hashable, Codable{
+
+    struct Coordinates: Hashable, Codable {
         var latitude: Double
-        var longtitude: Double
+        var longitude: Double
     }
 }
-

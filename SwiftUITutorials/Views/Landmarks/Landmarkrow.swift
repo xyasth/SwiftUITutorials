@@ -7,17 +7,19 @@
 
 import SwiftUI
 
-struct Landmarkrow: View {
-    var landmark : Landmark
+struct LandmarkRow: View {
+    var landmark: Landmark
+
     var body: some View {
-        HStack() {
+        HStack {
             landmark.image
                 .resizable()
                 .frame(width: 50, height: 50)
             Text(landmark.name)
+
             Spacer()
-            
-            if landmark.isFavorite{
+
+            if landmark.isFavorite {
                 Image(systemName: "star.fill")
                     .foregroundStyle(.yellow)
             }
@@ -25,10 +27,10 @@ struct Landmarkrow: View {
     }
 }
 
-#Preview("turtle rock") {
+#Preview {
     let landmarks = ModelData().landmarks
     return Group {
-        Landmarkrow(landmark: landmarks[0])
-        Landmarkrow(landmark: landmarks[1])
+        LandmarkRow(landmark: landmarks[0])
+        LandmarkRow(landmark: landmarks[1])
     }
 }
